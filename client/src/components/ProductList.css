@@ -1,0 +1,125 @@
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  min-height: 0;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.search-input {
+  flex: 1 1 280px;
+  min-width: 220px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+}
+
+.product-table th,
+.product-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #eff2ff;
+}
+
+.product-table th {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+  text-align: left;
+}
+
+.product-table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+.product-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-size: 0.82rem;
+}
+
+.delete-button {
+  border: 1px solid #fecdd3;
+  background: transparent;
+  color: #be123c;
+  border-radius: 9999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #fef2f2;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.page-button {
+  min-width: 44px;
+  border: 1px solid #dbeafe;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #334155;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.page-button:hover {
+  background: #eef2ff;
+}
+
+.page-button.active {
+  background: #4338ca;
+  border-color: #4338ca;
+  color: #ffffff;
+}
+
+.loading-text,
+.empty-text {
+  padding: 24px;
+  color: #475569;
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

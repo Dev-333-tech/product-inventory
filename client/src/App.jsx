@@ -1,0 +1,11 @@
+// src/App.jsx
+import './App.css';
+import HomePage from './components/HomePage';
+
+export default function App() {
+  return (
+    <div className="app-shell">
+      <HomePage />
+    </div>
+  );
+}
