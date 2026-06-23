@@ -1,7 +1,5 @@
-// server/middleware/validate.js
 const { body, validationResult } = require("express-validator");
 
-// Rules that run before the route handler
 const productValidationRules = [
   body("name")
     .trim()
@@ -21,13 +19,12 @@ const productValidationRules = [
     .withMessage("At least one category is required"),
 ];
 
-// Middleware that checks if any validation rule failed
 const validate = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  next(); // All good, proceed to route handler
+  next();
 };
 
 module.exports = { productValidationRules, validate };

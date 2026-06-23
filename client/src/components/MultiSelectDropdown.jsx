@@ -1,4 +1,3 @@
-// src/components/MultiSelectDropdown.jsx
 import { useState, useRef, useEffect } from 'react';
 import './MultiSelectDropdown.css';
 
@@ -6,7 +5,6 @@ export default function MultiSelectDropdown({ options, selected, onChange, place
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handler = (e) => {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);
@@ -18,8 +16,8 @@ export default function MultiSelectDropdown({ options, selected, onChange, place
   const toggle = (id) => {
     onChange(
       selected.includes(id)
-        ? selected.filter((s) => s !== id)   // Remove if already selected
-        : [...selected, id]                   // Add if not selected
+        ? selected.filter((s) => s !== id)
+        : [...selected, id]
     );
   };
 

@@ -1,4 +1,3 @@
-// src/components/ProductForm.jsx
 import { useState, useEffect } from 'react';
 import { createProduct, getCategories } from '../api/productApi';
 import MultiSelectDropdown from './MultiSelectDropdown';
@@ -15,7 +14,6 @@ export default function ProductForm({ onProductAdded }) {
     getCategories().then((res) => setCategories(res.data));
   }, []);
 
-  // Client-side validation
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = 'Name is required';
@@ -38,9 +36,8 @@ export default function ProductForm({ onProductAdded }) {
     try {
       await createProduct({ ...form, quantity: Number(form.quantity) });
       setForm({ name: '', description: '', quantity: '', categories: [] });
-      onProductAdded(); // Tell parent to refresh the list
+      onProductAdded();
     } catch (err) {
-      // err.response.data has the server's error message
       setServerError(err.response?.data?.message || 'Failed to add product');
     } finally {
       setLoading(false);

@@ -1,4 +1,3 @@
-// server/seeders/categorySeeder.js
 const mongoose = require("mongoose");
 require("dotenv").config();
 const Category = require("../models/Category");
@@ -22,7 +21,7 @@ async function seed() {
 
   await mongoose.connect(mongoUri);
 
-  await Category.deleteMany({}); // Clear existing
+  await Category.deleteMany({});
   await Category.insertMany(categories.map((name) => ({ name })));
   console.log("Categories seeded!");
   await mongoose.disconnect();

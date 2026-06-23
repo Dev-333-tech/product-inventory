@@ -7,14 +7,11 @@ const productRoutes = require("./routes/products");
 
 const app = express();
 
-// Middleware
-app.use(cors()); // Allow cross-origin requests from React
-app.use(express.json()); // Parse incoming JSON request bodies
+app.use(cors());
+app.use(express.json());
 
-// Routes
 app.use("/api/products", productRoutes);
 
-// Connect to MongoDB, then start the server
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {

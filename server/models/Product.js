@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "Product name is required"],
-      unique: true, // MongoDB-level uniqueness index
+      unique: true,
       trim: true,
     },
     description: {
@@ -21,16 +21,15 @@ const productSchema = new mongoose.Schema(
     categories: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Category", // References the Category collection
+        ref: "Category",
       },
     ],
   },
   {
-    timestamps: true, // Adds createdAt and updatedAt automatically
+    timestamps: true,
   },
 );
 
-// Text index for name search (enables efficient $text queries)
 productSchema.index({ name: "text" });
 
 module.exports = mongoose.model("Product", productSchema);

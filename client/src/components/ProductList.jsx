@@ -1,4 +1,3 @@
-// src/components/ProductList.jsx
 import { useState, useEffect } from 'react';
 import { getProducts, deleteProduct, getCategories } from '../api/productApi';
 import MultiSelectDropdown from './MultiSelectDropdown';
@@ -13,12 +12,10 @@ export default function ProductList({ refreshKey, onRefresh }) {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  // Load categories once
   useEffect(() => {
     getCategories().then((res) => setCategories(res.data));
   }, []);
 
-  // Load products whenever page, search, selectedCats, or refreshKey changes
   useEffect(() => {
     let cancelled = false;
 
@@ -46,14 +43,12 @@ export default function ProductList({ refreshKey, onRefresh }) {
 
   }, [page, search, selectedCats, refreshKey]);
 
-  // Reset to page 1 when filters change
   const handleSearchChange = (e) => { setSearch(e.target.value); setPage(1); };
   const handleCatChange = (cats) => { setSelectedCats(cats); setPage(1); };
 
   const handleDelete = async (id) => {
-    // if (!window.confirm('Delete this product?')) return;
     await deleteProduct(id);
-    onRefresh(); // triggers refreshKey bump in parent → effect re-runs
+    onRefresh();
   };
 
   return (
